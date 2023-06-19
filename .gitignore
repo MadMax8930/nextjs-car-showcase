@@ -33,3 +33,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# custom
+READI.md
+.gitignore
+package-lock.json
+.env
+/public
+/.next
