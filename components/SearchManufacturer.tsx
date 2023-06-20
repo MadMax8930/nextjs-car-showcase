@@ -14,20 +14,24 @@ const SearchManufacturer = ({ brand, setBrand }: SearchManufacturerProps) => {
 
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      {/* Pass the Searchbar state to the Combobox */}
+      <Combobox value={brand} onChange={setBrand}>
          <div className="relative w-full">
+            {/* Button */}
             <Combobox.Button className="absolute top-[14px]">
                <Image 
                   src="/car-logo.svg" alt="Car Logo"
                   width={20} height={20} className="ml-4"
                />
             </Combobox.Button>
+            {/* Input */}
             <Combobox.Input 
                className="search-manufacturer__input"
                placeholder="Volkswagen"
                displayValue={(brand: string) => brand}
                onChange={(e) => setSearchQuery(e.target.value)}
             />
+            {/* Options */}
             <Transition 
                as={Fragment}
                leave="transition ease-in duration-100"
@@ -42,7 +46,11 @@ const SearchManufacturer = ({ brand, setBrand }: SearchManufacturerProps) => {
                         value={item}
                         className={({active}) => `relative search-manufacturer__option ${active ? 'bg-primary-blue text-white' : 'text-gray-900'}`}
                      >
-                        {item}
+                        {({selected}) => (
+                           <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                              {item}
+                           </span>
+                        )}
                      </Combobox.Option>
                   ))}
                </Combobox.Options>
