@@ -1,10 +1,7 @@
-import { fetchCars } from "@/api";
 import { Searchbar, CustomFilter, CarCard } from "@/components";
 
-const CarCatalogue = async () => {
-   const allCars = await fetchCars();
+const CarCatalogue = async ({ allCars, searchParams }) => {
    const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-   console.log(allCars);
 
   return (
     <div className="mt-12 padding-x padding-y max-width" id="discover">
