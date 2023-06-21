@@ -1,4 +1,5 @@
 import { Searchbar, CustomFilter, CarCard } from "@/components";
+import { fuels, yearsOfProduction } from "@/constants";
 
 const CarCatalogue = async ({ allCars, searchParams }) => {
    const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
@@ -14,8 +15,8 @@ const CarCatalogue = async ({ allCars, searchParams }) => {
       <div className="home__filters">
          <Searchbar />
          <div className="home__filter-container">
-            <CustomFilter title="fuel" />
-            <CustomFilter title="year" />
+            <CustomFilter title="fuel" options={fuels} />
+            <CustomFilter title="year" options={yearsOfProduction} />
          </div>
       </div>
       {/* Go over the car data */}
