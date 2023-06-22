@@ -1,4 +1,4 @@
-import { Searchbar, CustomFilter, CarCard } from "@/components";
+import { Searchbar, CustomFilter, CarCard, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 
 const CarCatalogue = async ({ allCars, searchParams }) => {
@@ -25,7 +25,8 @@ const CarCatalogue = async ({ allCars, searchParams }) => {
             <div className="home__cars-wrapper">
                {allCars?.map((car, index) => <CarCard key={index} car={car} />)}
             </div>
-         </section> 
+            <ShowMore />
+         </section>  
       ) : (
          <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no results</h2>
