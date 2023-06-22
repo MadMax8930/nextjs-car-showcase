@@ -1,7 +1,8 @@
 import { Searchbar, CustomFilter, CarCard, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
+import { CarCatalogueProps } from "@/types";
 
-const CarCatalogue = async ({ allCars, searchParams }) => {
+const CarCatalogue = async ({ allCars, searchParams }: CarCatalogueProps) => {
    const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -25,12 +26,14 @@ const CarCatalogue = async ({ allCars, searchParams }) => {
             <div className="home__cars-wrapper">
                {allCars?.map((car, index) => <CarCard key={index} car={car} />)}
             </div>
-            <ShowMore />
+            <ShowMore 
+               pageNumber={(searchParams.limit || 10) / 10} 
+               isNext={(searchParams.limit || 10) > allCars.length} 
+            />
          </section>  
       ) : (
          <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no results</h2>
-            <p>{allCars?.message}</p>
          </div>
       )}
 
