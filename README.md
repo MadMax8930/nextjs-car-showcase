@@ -49,4 +49,4 @@ SSR components can be converted into CSR components by applying "use client" (fo
 
 ### Component Structure:
 
-![plot](./public/structure.png)
+![plot](./public/component-structure.png)
