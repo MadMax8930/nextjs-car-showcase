@@ -48,4 +48,16 @@ export interface CustomFilterProps {
    options: OptionProps[];
 }
 
+export interface ShowMoreProps {
+   pageNumber: number;
+   isNext: boolean;
+}
  
+export interface HomeProps {
+   searchParams: FilterProps;
+}
+
+export interface CarCatalogueProps {
+   allCars: CarProps;
+   searchParams: FilterProps;
+}
