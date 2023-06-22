@@ -1,7 +1,8 @@
 import { fetchCars } from "@/api";
 import { Hero, CarCatalogue } from "@/components"
+import { HomeProps } from "@/types";
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: HomeProps) {
    const allCars = await fetchCars({
       make: searchParams.make || '',
       year: searchParams.year || 2022,
